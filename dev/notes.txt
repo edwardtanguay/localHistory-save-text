@@ -1,3 +1,4 @@
 - x create a button, test: show test
 - x change text to large/small
-- .. save the text in localhistory 
+- x save the text in localhistory 
+- .. write history into localStorage

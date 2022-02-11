@@ -3,12 +3,13 @@ import { useState } from 'react';
 export const TextFormWithHistory = () => {
 	const [textCase, setTextCase] = useState('uppercase');
 	const [text, setText] = useState('');
-	const [history, setHistory] = useState(['111', '222', '333']);
+	const [history, setHistory] = useState([]);
 
 	const handleButtonClick = () => {
 		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
 		history.push(textForHistory);
-		setHistory(...history);
+		localStorage.setItem('history', JSON.stringify(history));
+		setHistory([...history]);
 	}
 
 	return (
