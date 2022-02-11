@@ -13,7 +13,6 @@ export const TextFormWithHistory = () => {
 			</form>
 
 			<input type="text" />
-
 			<div className="history">
 				History:
 				<div className="content">
