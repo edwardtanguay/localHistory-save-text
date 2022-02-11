@@ -1,15 +1,17 @@
+import { useState } from 'react';
 import './App.scss';
 
 function App() {
+	const [textCase, setTextCase] = useState('uppercase');
 	return (
 		<div className="App">
 
 			<form>
-				<input id="row" type="radio" name="flexDirection" value="row" checked={flexDirection === "row"} onChange={(e) => setFlexDirection(e.target.value)} />
-				<label htmlFor="row">Großschrift</label>
+				<input id="uppercase" type="radio" name="textCase" value="uppercase" checked={textCase === "uppercase"} onChange={(e) => setTextCase(e.target.value)} />
+				<label htmlFor="uppercase">Großschrift</label>
 
-				<input id="column" type="radio" name="flexDirection" value="column" checked={flexDirection === "column"} onChange={(e) => setFlexDirection(e.target.value)} />
-				<label htmlFor="column">KleinSchrift</label>
+				<input id="lowercase" type="radio" name="textCase" value="lowercase" checked={textCase === "lowercase"} onChange={(e) => setTextCase(e.target.value)} />
+				<label htmlFor="lowercase">KleinSchrift</label>
 			</form>
 
 			<input type="text" />
