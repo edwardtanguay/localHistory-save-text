@@ -5,7 +5,7 @@ const _history = JSON.parse(localStorage.getItem('history'));
 export const TextFormWithHistory = () => {
 	const [textCase, setTextCase] = useState('uppercase');
 	const [text, setText] = useState('');
-	const [history, setHistory] = useState(_history);
+	const [history, setHistory] = useState(_history === null ? [] : _history);
 
 	const handleButtonClick = () => {
 		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
