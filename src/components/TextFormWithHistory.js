@@ -5,7 +5,8 @@ export const TextFormWithHistory = () => {
 	const [text, setText] = useState('');
 	
 	const handleButtonClick = () => {
-		console.log(text);
+		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
+		console.log(textForHistory);
 	}
 	
 	return (

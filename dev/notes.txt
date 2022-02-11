@@ -1,2 +1,3 @@
 - x create a button, test: show test
-- .. 
+- .. change text to large/small
+- save the text in localhistory 
