@@ -1,11 +1,16 @@
-import { useState } from 'react';
-
-const _history = JSON.parse(localStorage.getItem('history'));
+import { useState, useEffect } from 'react';
 
 export const TextFormWithHistory = () => {
 	const [textCase, setTextCase] = useState('uppercase');
 	const [text, setText] = useState('');
-	const [history, setHistory] = useState(_history === null ? [] : _history);
+	const [history, setHistory] = useState([]);
+
+	useEffect(() => {
+		setTimeout(() => {
+		const _history = JSON.parse(localStorage.getItem('history'));
+		setHistory([..._history]);
+		}, 2000);
+	}, []);
 
 	const handleButtonClick = () => {
 		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
@@ -28,7 +33,7 @@ export const TextFormWithHistory = () => {
 			<div className="history">
 				<h2>History:</h2>
 				<div className="content">
-					{history.map((m,i) => <div key={i}>{m}</div>)}
+					{history.map((m, i) => <div key={i}>{m}</div>)}
 				</div>
 			</div>
 		</div>
