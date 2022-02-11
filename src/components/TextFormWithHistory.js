@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
+const _history = JSON.parse(localStorage.getItem('history'));
+
 export const TextFormWithHistory = () => {
 	const [textCase, setTextCase] = useState('uppercase');
 	const [text, setText] = useState('');
-	const [history, setHistory] = useState([]);
+	const [history, setHistory] = useState(_history);
 
 	const handleButtonClick = () => {
 		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
