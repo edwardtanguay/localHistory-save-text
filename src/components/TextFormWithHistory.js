@@ -3,12 +3,14 @@ import { useState } from 'react';
 export const TextFormWithHistory = () => {
 	const [textCase, setTextCase] = useState('uppercase');
 	const [text, setText] = useState('');
-	
+	const [history, setHistory] = useState(['111', '222', '333']);
+
 	const handleButtonClick = () => {
 		const textForHistory = textCase === 'uppercase' ? text.toUpperCase() : text.toLowerCase();
-		console.log(textForHistory);
+		history.push(textForHistory);
+		setHistory(...history);
 	}
-	
+
 	return (
 		<div>
 			<form>
@@ -21,9 +23,9 @@ export const TextFormWithHistory = () => {
 			<input type="text" value={text} onChange={(e) => setText(e.target.value)} />
 			<button onClick={(e) => handleButtonClick(e)}>In History hinzufügen</button>
 			<div className="history">
-				History:
+				<h2>History:</h2>
 				<div className="content">
-
+					{history.map((m,i) => <div key={i}>{m}</div>)}
 				</div>
 			</div>
 		</div>
